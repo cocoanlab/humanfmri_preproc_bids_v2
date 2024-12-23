@@ -1,4 +1,9 @@
-<2024.12.23.Mon version>
+last update 2024.12.23.Mon 
+
+Before committing new env., run the following.
+
+sh ~/clean_before_commit.sh 
+
 % PLEASE check the latest update version
 
 ################### FILE LOCATIONS START ####################
