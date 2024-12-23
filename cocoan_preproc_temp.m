@@ -57,13 +57,13 @@ switch lower(process_is)
     %   -params.output_prefix (default: 'c_') will be appended at the resulting output
            
     
-    case {'spike_id'}
+    case {'spike_id'} % QC
     % Outlier detection (spike) based on the statistics from RMSSD and
     % Mahalanobis distance
     % It requires functions in preprocess/canlab                
     
 
-    case {'slice_timing_correction' , 'st_correction'}
+    case {'slice_timing_correction' , 'st_correction'} % Preproc
     % It can be ignored if only short TR ( less than 1 secs)   .
     
     % ** ONLY FOR MULTI-ECHO **  %
