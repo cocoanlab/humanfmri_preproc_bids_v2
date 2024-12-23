@@ -30,25 +30,14 @@ out.ref_echonum      = 1;    % Using 1st Echo for BET
 out.input_prefix     = 'c_'; % disdaq ver
 out.input_postfix    = '';
 out.mask_prefix      = '';
-out.mask_postfix     = '_betmask';
-out.ref_echonum      = 2; % Using Echo 2 for SpikeDetection...
+out.mask_postfix    = '_betmask';
+ref_echonum     = 2; % Using Echo 2 for SpikeDetection...
 
-% 2. Slice Time Correction
+% 2 Slice Time Correction
 out.input_prefix
 out.output_prefix
 
-% 3. Motion Correction (Realignment)
-out.input_prefix       = 'c_';  % before slice timing correction.
-out.output_prefix      = 'r';
-out.ref_imgnum         = 1; % not be used if use_sbref is true.  
-out.use_sbref          = true; 
-out.ref_echonum        = 2;
-out.ref_prefix         = 'ref_';
 
-%% 3-2. Actual Realign 
-input_prefix       = 'ac_';  
-output_prefix      = 'r';
-ref_echonum        = 2; % 
 out.('save_implicit_mask').use_sbref = true;
 out.ref_imgnum = 1;
 out.ref_echonum = 2;
