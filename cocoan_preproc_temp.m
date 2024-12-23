@@ -45,7 +45,13 @@ end
 
 switch lower(process_is)
     
-    case {'disdaq','save_mean_img','save_implicit_mask'}  
+  % =================================================================== %
+    %                                                                     %
+    %                    PREPROCESSEING STEP                              %
+    %                                                                     %
+    % =================================================================== %
+    
+    case {'disdaq'}  
     % 1) Discard some TRs, 2) write save mean images, 
     % and 3) save implicit mask
     
@@ -56,14 +62,15 @@ switch lower(process_is)
     % Optional params.
     %   -params.output_prefix (default: 'c_') will be appended at the resulting output
            
-    
-    case {'spike_id'} % QC
+    case {'save_implicit_mask'}
+        
+    case {'spike_id'}
     % Outlier detection (spike) based on the statistics from RMSSD and
     % Mahalanobis distance
     % It requires functions in preprocess/canlab                
     
 
-    case {'slice_timing_correction' , 'st_correction'} % Preproc
+    case {'slice_timing_correction' , 'st_correction'}
     % It can be ignored if only short TR ( less than 1 secs)   .
     
     % ** ONLY FOR MULTI-ECHO **  %
@@ -78,10 +85,7 @@ switch lower(process_is)
     % by JJ
         
     case {'distotion_correction'}
-        
-    case {'tedana','multi-echo'} % ** ONLY FOR MULTI-ECHO **  %
-    % 1) Writing optimally combined images using three echos by estimating t2*
-    % 2) Denoising ME-ICA using optimally combined images    
+            
            
         
     case {'co-registration','co-regi', 'normalizatoin','spatial_normalization'}
@@ -90,11 +94,27 @@ switch lower(process_is)
     
     case {'smoothing'} 
     % temporal smoothing
-        
     
-    case {'est_nuisance'}
-        %
+    % =================================================================== %
+    %                                                                     %
+    %                    MULTI-echo -related STEP                         %
+    %                                                                     %
+    % =================================================================== %    
+    
+    case {'tedana','multi-echo'} % ** ONLY FOR MULTI-ECHO **  %
+    % 1) Writing optimally combined images using three echos by estimating t2*
+    % 2) Denoising ME-ICA using optimally combined images    
+    
+    % =================================================================== %
+    %                                                                     %
+    %                    QC-related STEP                                  %
+    %                                                                     %
+    % =================================================================== %    
+    case {'save_mean_img'}
         
+        
+    case {'est_nuisance'}
+    %
         
 end
 
